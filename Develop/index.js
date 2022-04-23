@@ -1,11 +1,11 @@
-// TODO: Include packages needed for this application
+// Packages needed for this application
 const inquirer = require('inquirer');
 
 const fs = require('fs');
 
 const generateMarkdown = require('./utils/generateMarkdown');
 
-// TODO: Create an array of questions for user input
+// An array of questions for user input
 const questions = () => {
     return inquirer.prompt([
         {
@@ -52,10 +52,28 @@ const questions = () => {
             message: 'How do you use the project (provide examples)?'
         },
         {
+            type: 'list',
+            name: 'license',
+            message: 'What type of license do you want to give this project?',
+            choices: ['MIT', 'APACHE 2.0', 'GPL 3.0', 'BSD 3', 'None']
+        },
+        {
             type: 'confirm',
             name: 'collaborators',
             message: 'Where there any collaborators on this project?',
             default: false
+        },
+        {
+            type: 'input',
+            name: 'collabLink',
+            message: 'Provide links to all collaborators github profiles',
+            when: ({ collaborators }) => {
+                if (collaborators) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
         },
         {
             type: 'confirm',
@@ -64,10 +82,34 @@ const questions = () => {
             default: false
         },
         {
+            type: 'input',
+            name: 'thirdPartyAssets',
+            message: 'Provide links to all 3rd party contributors',
+            when: ({ thirdparty }) => {
+                if (thirdparty) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        },
+        {
             type: 'confirm',
             name: 'tutorials',
             message: 'Did you use any tutorials?',
             default: false
+        },
+        {
+            type: 'input',
+            name: 'tutorialsLink',
+            message: 'Provide links to all tutorials used',
+            when: ({ tutorials }) => {
+                if (tutorials) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
         },
         {
             type: 'input',
@@ -106,8 +148,11 @@ const questions = () => {
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
 
-// TODO: Create a function to initialize app
-function init() {}
+// Initialize app
+questions()
+    .then(generateMarkdown)
+    .then(writeToFile)
+    .catch(err => {
+        console.log(err);
+    });
 
-// Function call to initialize app
-init();
