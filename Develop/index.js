@@ -145,14 +145,97 @@ const questions = () => {
     ]);
 };
 
+questions().then(answers => console.log(answers));
+
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+const writeFile = fileContent => {
+    return new Promise((resolve,reject) => {
+        fs.writeFile('./README.md', fileContent, err => {
+            if (err) {
+                reject(err);
+                return;
+            }
 
-// Initialize app
-questions()
-    .then(generateMarkdown)
-    .then(writeToFile)
-    .catch(err => {
-        console.log(err);
+            resolve({
+                ok: true,
+                message: 'File created!'
+            });
+        });
     });
+};
 
+const generateDescription = () => {
+            return `
+            ##Description
+            What was your motivation for creating this project? ${motivation}
+            Why did you build this project? ${build}
+            What problem does it solve? ${problem}
+            What did you learn from this project? ${learn}`;
+};
+
+module.exports = templateData => {
+    const { description, title, license, ...data } = templateData;
+
+    return `
+    ${generateMarkdown(title)}
+    
+    ${generateDescription(description)}
+    
+    ## Table of Contents
+    - [Installation](#installation)
+    - [Usage](#usage)
+    - [License](#license)
+    - [Contributing](#contributing)
+    - [Tests](#tests)
+    - [Questions](#questions)
+
+    ## Usage
+    Here are the instructions and examples of how to use this project
+    ${data.installation}
+
+    ## License
+    Here is the description of the license for this project
+    ${generateMarkdown(license)}
+
+    ## Contributing
+    Here are all of the contributors for this project
+    ${data.collaborators}
+    ${data.thirdparty}
+    ${data.tutorials}
+
+    ## Tests
+    Here are the tests for the application:
+    ${data.tests}
+
+    ##Questions
+    If you have any questions please check my Github at https://github.com/${data.github}
+    Or reach out to me by email at ${data.email}
+    `
+};
+// Initialize app
+// questions()
+//     .then(generateMarkdown)
+//     .then(writeToFile)
+//     .catch(err => {
+//         console.log(err);
+//     });
+
+// {
+//     title: 'test',
+//     motivation: 'school',
+//     build: 'wanted to',
+//     problem: 'all problems',
+//     learn: 'everything',
+//     installation: 'npm init npm inquirer node index to run',
+//     usage: 'input data and it becomes a readme file',
+//     license: 'MIT',
+//     collaborators: true,
+//     collabLink: 'faadsfin',
+//     thirdparty: true,
+//     thirdPartyAssets: 'jfasfilln',
+//     tutorials: true,
+//     tutorialsLink: 'jaisdnf.com',
+//     tests: 'example test here',
+//     github: 'jvit1985',
+//     email: 'jvit85@gmail.com'
+//   }
