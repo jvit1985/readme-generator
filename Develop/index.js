@@ -3,7 +3,7 @@ const inquirer = require('inquirer');
 
 const fs = require('fs');
 
-const generateMarkdown = require('./utils/generateMarkdown');
+const generateReadMe = require('./utils/generateMarkdown.js');
 
 // An array of questions for user input
 const questions = () => {
@@ -145,12 +145,10 @@ const questions = () => {
     ]);
 };
 
-questions().then(answers => console.log(answers));
-
 // TODO: Create a function to write README file
 const writeFile = fileContent => {
     return new Promise((resolve,reject) => {
-        fs.writeFile('./README.md', fileContent, err => {
+        fs.writeFile('../dist/README.md', fileContent, err => {
             if (err) {
                 reject(err);
                 return;
@@ -164,54 +162,19 @@ const writeFile = fileContent => {
     });
 };
 
-const generateDescription = () => {
-            return `
-            ##Description
-            What was your motivation for creating this project? ${motivation}
-            Why did you build this project? ${build}
-            What problem does it solve? ${problem}
-            What did you learn from this project? ${learn}`;
-};
-
-module.exports = templateData => {
-    const { description, title, license, ...data } = templateData;
-
-    return `
-    ${generateMarkdown(title)}
-    
-    ${generateDescription(description)}
-    
-    ## Table of Contents
-    - [Installation](#installation)
-    - [Usage](#usage)
-    - [License](#license)
-    - [Contributing](#contributing)
-    - [Tests](#tests)
-    - [Questions](#questions)
-
-    ## Usage
-    Here are the instructions and examples of how to use this project
-    ${data.installation}
-
-    ## License
-    Here is the description of the license for this project
-    ${generateMarkdown(license)}
-
-    ## Contributing
-    Here are all of the contributors for this project
-    ${data.collaborators}
-    ${data.thirdparty}
-    ${data.tutorials}
-
-    ## Tests
-    Here are the tests for the application:
-    ${data.tests}
-
-    ##Questions
-    If you have any questions please check my Github at https://github.com/${data.github}
-    Or reach out to me by email at ${data.email}
-    `
-};
+questions()
+    .then(answers => {
+        return generateReadMe(answers);
+    })
+    .then(readMeInfo => {
+        return writeFile(readMeInfo);
+    })
+    .then(writeFileResponse => {
+        console.log(writeFileResponse);
+    })
+    .catch(err => {
+        console.log(err);
+    });
 // Initialize app
 // questions()
 //     .then(generateMarkdown)
