@@ -8,9 +8,8 @@ const bsdLink = 'https://choosealicense.com/licenses/isc/';
 const renderLicenseBadge = (license) => {
   if(!license || license == 'None') {
     return '';
-  }
-  return `(https://img.shields.io/badge/license-${license}-blue.svg)`
-  
+  } 
+  return `![GitHub license](https://img.shields.io/badge/license-${license}-blue.svg)`
 }; 
 
 // Function that returns the license link
@@ -20,23 +19,23 @@ const renderLicenseLink = (license) => {
     return '';
   } else if (license = 'MIT') {
     return `
-    ## License
-    Here is the link for the license and copyright details ${mitLink}
+  ## License
+  Here is the link for the license and copyright details: ${mitLink}
     `;
   } else if (license = 'Apache 2.0') {
     return `
-    ## License
-    Here is the link for the license and copyright details ${apacheLink}
+  ## License
+  Here is the link for the license and copyright details: ${apacheLink}
     `;
   } else if (license = 'GPL 3.0') {
     return `
-    ## License
-    Here is the link for the license and copyright details ${gplLink}
+  ## License
+  Here is the link for the license and copyright details: ${gplLink}
     `;
   } else if (license = 'BSD 3') {
     return `
-    ## License
-    Here is the link for the license and copyright details ${bsdLink}
+  ## License
+  Here is the link for the license and copyright details: ${bsdLink}
     `;
   } else {
     return '';
@@ -50,25 +49,25 @@ const renderLicenseSection = (license) => {
     return '';
   } else if (license = 'MIT') {
     return `
-    MIT License
-  
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-  
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
-  
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE.
+  MIT License
+          
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+          
+  The above copyright notice and this permission notice shall be included in all
+  copies or substantial portions of the Software.
+          
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
     `;
   } else if (license = 'Apache 2.0') {
     return `
@@ -969,7 +968,7 @@ const testSection = (testText) => {
     return '';
   }
   return `## Tests
-  Here are the tests for this project
+  Here are the tests for this project:
   ${testText}
   `;
 };
@@ -979,7 +978,9 @@ module.exports = generateData => {
   const { motivation, build, problem, learn, title, license, installation, usage, collabLink, thirdpartyAssets, tutorialsLink, tests, github, email } = generateData;
 
   return `
-  ${title}${renderLicenseBadge(license)}
+  # ${title}
+  
+  ${renderLicenseBadge(license)}
   
   ${generateDescription(motivation, build, problem, learn)}
   
