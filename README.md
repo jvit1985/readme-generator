@@ -1,6 +1,6 @@
 # Read Me Generator
   
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="116" height="20" role="img" aria-label="license: MIT"><title>license: MIT</title></svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="116" height="20" role="img" aria-label="license: MIT"></svg>
   
   
   ## Description
