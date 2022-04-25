@@ -1,6 +1,6 @@
 # Read Me Generator
   
- https://img.shields.io/vscode-marketplace/v/yzhang.markdown-all-in-one.svg?style=flat-square&label=vscode%20marketplace
+ ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
   
   
   ## Description
