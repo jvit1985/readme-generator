@@ -1,7 +1,9 @@
+//License links
 const mitLink = 'https://choosealicense.com/licenses/mit/';
 const apacheLink = 'https://choosealicense.com/licenses/apache-2.0/';
 const gplLink = 'https://choosealicense.com/licenses/gpl-3.0/';
 const bsdLink = 'https://choosealicense.com/licenses/isc/';
+//License Descriptions
 const mitSection = () => {
   return `
   MIT License
@@ -927,6 +929,7 @@ const renderLicenseSection = (license) => {
   }
 };
 
+//Function that returns info needed for Description Section of ReadMe
 const generateDescription = (motivationText, buildText, problemText, learnText) => {
   return `
   ## Description
@@ -936,6 +939,7 @@ const generateDescription = (motivationText, buildText, problemText, learnText) 
   What did you learn from this project? ${learnText}`
 };
 
+//Function for Installation section of Readme
 const installSection = installText => {
   if(!installText) {
     return '';
@@ -946,6 +950,7 @@ const installSection = installText => {
   `;
 };
 
+//Function for Usage Section of Readme
 const usageSection = usageText => {
   if(!usageText) {
   return '';
@@ -956,6 +961,7 @@ return `## Usage
 `;
 };
 
+//Function for Contributors Section of Readme
 const collabSection = (collaborators,thirdParty,tutorials) => {
   if(!collaborators && !thirdParty && !tutorials) {
     return '';
@@ -968,6 +974,7 @@ const collabSection = (collaborators,thirdParty,tutorials) => {
   `;
 };
 
+//Function for Test Section of Readme
 const testSection = (testText) => {
   if(!testText) {
     return '';

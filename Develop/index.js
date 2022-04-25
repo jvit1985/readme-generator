@@ -145,7 +145,7 @@ const questions = () => {
     ]);
 };
 
-// TODO: Create a function to write README file
+// Function to write README file
 const writeFile = fileContent => {
     return new Promise((resolve,reject) => {
         fs.writeFile('../dist/README.md', fileContent, err => {
@@ -162,6 +162,7 @@ const writeFile = fileContent => {
     });
 };
 
+//Call inputs and put answers in readme file
 questions()
     .then(answers => {
         return generateReadMe(answers);
@@ -175,30 +176,3 @@ questions()
     .catch(err => {
         console.log(err);
     });
-// Initialize app
-// questions()
-//     .then(generateMarkdown)
-//     .then(writeToFile)
-//     .catch(err => {
-//         console.log(err);
-//     });
-
-// {
-//     title: 'test',
-//     motivation: 'school',
-//     build: 'wanted to',
-//     problem: 'all problems',
-//     learn: 'everything',
-//     installation: 'npm init npm inquirer node index to run',
-//     usage: 'input data and it becomes a readme file',
-//     license: 'MIT',
-//     collaborators: true,
-//     collabLink: 'faadsfin',
-//     thirdparty: true,
-//     thirdPartyAssets: 'jfasfilln',
-//     tutorials: true,
-//     tutorialsLink: 'jaisdnf.com',
-//     tests: 'example test here',
-//     github: 'jvit1985',
-//     email: 'jvit85@gmail.com'
-//   }
