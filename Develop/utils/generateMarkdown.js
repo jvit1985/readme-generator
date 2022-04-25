@@ -3,34 +3,75 @@ const mitLink = 'https://choosealicense.com/licenses/mit/';
 const apacheLink = 'https://choosealicense.com/licenses/apache-2.0/';
 const gplLink = 'https://choosealicense.com/licenses/gpl-3.0/';
 const bsdLink = 'https://choosealicense.com/licenses/isc/';
-//License Descriptions
-const mitSection = () => {
-  return `
-  MIT License
+// Function that returns a license badge based on which license is passed in
+// If there is no license, return an empty string
+const renderLicenseBadge = (license) => {
+  if(!license || license == 'None') {
+    return '';
+  }
+  return `(https://img.shields.io/badge/license-${license}-blue.svg)`
+  
+}; 
 
-  Copyright (c) [year] [fullname]
-
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to deal
-  in the Software without restriction, including without limitation the rights
-  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-  copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
-
-  The above copyright notice and this permission notice shall be included in all
-  copies or substantial portions of the Software.
-
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-  SOFTWARE.
-  `
+// Function that returns the license link
+// If there is no license, return an empty string
+const renderLicenseLink = (license) => {
+  if(!license || license == 'None') {
+    return '';
+  } else if (license = 'MIT') {
+    return `
+    ## License
+    Here is the link for the license and copyright details ${mitLink}
+    `;
+  } else if (license = 'Apache 2.0') {
+    return `
+    ## License
+    Here is the link for the license and copyright details ${apacheLink}
+    `;
+  } else if (license = 'GPL 3.0') {
+    return `
+    ## License
+    Here is the link for the license and copyright details ${gplLink}
+    `;
+  } else if (license = 'BSD 3') {
+    return `
+    ## License
+    Here is the link for the license and copyright details ${bsdLink}
+    `;
+  } else {
+    return '';
+  }
 };
-const apacheSection = () => {
-  return `
+
+// Function that returns the license section of README
+// If there is no license, return an empty string
+const renderLicenseSection = (license) => {
+  if(!license || license == 'None') {
+    return '';
+  } else if (license = 'MIT') {
+    return `
+    MIT License
+  
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+  
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+  
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
+    `;
+  } else if (license = 'Apache 2.0') {
+    return `
   Apache License
   Version 2.0, January 2004
   http://www.apache.org/licenses/
@@ -205,36 +246,9 @@ const apacheSection = () => {
   defend, and hold each Contributor harmless for any liability
   incurred by, or claims asserted against, such Contributor by reason
   of your accepting any such warranty or additional liability.
-
-  END OF TERMS AND CONDITIONS
-
-  APPENDIX: How to apply the Apache License to your work.
-
-  To apply the Apache License to your work, attach the following
-  boilerplate notice, with the fields enclosed by brackets "[]"
-  replaced with your own identifying information. (Don't include
-  the brackets!)  The text should be enclosed in the appropriate
-  comment syntax for the file format. We also recommend that a
-  file or class name and description of purpose be included on the
-  same "printed page" as the copyright notice for easier
-  identification within third-party archives.
-
-  Copyright [yyyy] [name of copyright owner]
-
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-  http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.`
-};
-const gplSection = () => {
-  return `
+  `;
+  } else if (license = 'GPL 3.0') {
+    return `
   GNU GENERAL PUBLIC LICENSE
   Version 3, 29 June 2007
 
@@ -854,13 +868,10 @@ const gplSection = () => {
   an absolute waiver of all civil liability in connection with the
   Program, unless a warranty or assumption of liability accompanies a
   copy of the Program in return for a fee.
-  `
-};
-const bsdSection = () => {
-  return `
+  `;
+  } else if (license = 'BSD 3') {
+    return `
   ISC License
-
-  Copyright (c) [year] [fullname]
   
   Permission to use, copy, modify, and/or distribute this software for any
   purpose with or without fee is hereby granted, provided that the above
@@ -873,57 +884,7 @@ const bsdSection = () => {
   LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
   OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
   PERFORMANCE OF THIS SOFTWARE.
-  `
-};
-// Function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-const renderLicenseBadge = (license) => {
-  if(!license || license == 'None') {
-    return '';
-  }
-  return `(https://img.shields.io/badge/license-${license}-blue.svg)`
-  
-}; 
-
-// Function that returns the license link
-// If there is no license, return an empty string
-const renderLicenseLink = (license) => {
-  if(!license) {
-    return '';
-  } else if (license = 'MIT') {
-    return `
-    ## License
-    Here is the link for the license and copyright details ${mitLink}`;
-  } else if (license = 'Apache 2.0') {
-    return `
-    ## License
-    Here is the link for the license and copyright details ${apacheLink}`;
-  } else if (license = 'GPL 3.0') {
-    return `
-    ## License
-    Here is the link for the license and copyright details ${gplLink}`;
-  } else if (license = 'BSD 3') {
-    return `
-    ## License
-    Here is the link for the license and copyright details ${bsdLink}`;
-  } else {
-    return '';
-  }
-};
-
-// Function that returns the license section of README
-// If there is no license, return an empty string
-const renderLicenseSection = (license) => {
-  if(!license) {
-    return '';
-  } else if (license = 'MIT') {
-    return mitSection;
-  } else if (license = 'Apache 2.0') {
-    return apacheSection;
-  } else if (license = 'GPL 3.0') {
-    return gplSection;
-  } else if (license = 'BSD 3') {
-    return bsdSection;
+  `;
   } else {
     return '';
   }
@@ -945,7 +906,7 @@ const installSection = installText => {
     return '';
   }
   return `## Installation
-  Here are the installation instructions for this project
+  Here are the installation instructions for this project:
   ${installText}
   `;
 };
@@ -956,7 +917,7 @@ const usageSection = usageText => {
   return '';
 }
 return `## Usage
-  Here are the instructions and examples of how to use this project
+  Here are the instructions and examples of how to use this project:
   ${usageText}
 `;
 };
@@ -965,13 +926,41 @@ return `## Usage
 const collabSection = (collaborators,thirdParty,tutorials) => {
   if(!collaborators && !thirdParty && !tutorials) {
     return '';
-  }
+  } else if (!thirdParty && collaborators && tutorials) {
   return `## Contributing
-  Here are the contributors to this project
+  Here are the contributors to this project:
   ${collaborators}
-  ${thirdParty}
   ${tutorials}
   `;
+  }
+  else if(!collaborators && thirdParty && tutorials) {
+    return `## Contributing
+    Here are the contributors to this project:
+    ${thirdParty}
+    ${tutorials}
+    `;
+  } else if (!tutorials && collaborators && thirdParty) {
+    return `## Contributing
+    Here are the contributors to this project:
+    ${collaborators}
+    ${thirdParty}
+    `;
+  } else if (!tutorials && !collaborators && thirdParty) {
+    return `## Contributing
+    Here are the contributors to this project:
+    ${thirdParty}
+    `;
+  } else if (!collaborators && !thirdParty && tutorials) {
+    return `## Contributing
+    Here are the contributors to this project:
+    ${tutorials}
+    `;
+  } else if (!thirdParty && !tutorials && collaborators) {
+    return `## Contributing
+    Here are the contributors to this project:
+    ${collaborators}
+    `;
+  }
 };
 
 //Function for Test Section of Readme
