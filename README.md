@@ -1,4 +1,4 @@
-# Read Me Generator(https://img.shields.io/badge/license-MIT-blue.svg)
+# Read Me Generator https://img.shields.io/badge/license-MIT-blue.svg
   
   
   ## Description
