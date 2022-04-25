@@ -1,6 +1,6 @@
-# Read Me Generator 
-
-https://img.shields.io/badge/license-MIT-blue.svg
+# Read Me Generator
+  
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="78" height="20" role="img" aria-label="license: MIT"><title>license: MIT</title><linearGradient id="s" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="r"><rect width="78" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#r)"><rect width="47" height="20" fill="#555"/><rect x="47" width="31" height="20" fill="#007ec6"/><rect width="78" height="20" fill="url(#s)"/></g><g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110"><text aria-hidden="true" x="245" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="370">license</text><text x="245" y="140" transform="scale(.1)" fill="#fff" textLength="370">license</text><text aria-hidden="true" x="615" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="210">MIT</text><text x="615" y="140" transform="scale(.1)" fill="#fff" textLength="210">MIT</text></g></svg>
   
   
   ## Description
@@ -19,7 +19,7 @@ https://img.shields.io/badge/license-MIT-blue.svg
 
   ## Installation
   Here are the installation instructions for this project:
-  To install the project download the code from my github at https://github.com/jvit1985/readme-generator Step 2: Install node.js by going to https://nodejs.org/en/     Step 3: from the command line at the root of the directory initialize the Node Package Manager or npm by typing "npm init" then hit enter without typing any           additional information until the end of the form Step 4: from the command line at the root of the directory install inquirer by typing "npm install inquirer" Step 5:   from the command line type "node index" and answer all of the questions as prompted.
+  To install the project download the code from my github at https://github.com/jvit1985/readme-generator Step 2: Install node.js by going to https://nodejs.org/en/     Step 3: from the command line at the root of the directory initialize the Node Package Manager or npm by typing "npm init" then hit enter without typing any           additional information until the end of the form Step 4: from the command line at the root of the directory install inquirer by typing "npm install inquirer" Step     5: from the command line type "node index" and answer all of the questions as prompted.
   
 
   ## Usage
@@ -29,7 +29,7 @@ https://img.shields.io/badge/license-MIT-blue.svg
 
   
   ## License
-  Here is the link for the license and copyright details https://choosealicense.com/licenses/mit/
+  Here is the link for the license and copyright details: https://choosealicense.com/licenses/mit/
     
   
   MIT License
@@ -63,3 +63,4 @@ https://img.shields.io/badge/license-MIT-blue.svg
   ## Questions
   If you have any questions please check my Github at https://github.com/jvit1985
   Or reach out to me by email at jvit85@gmail.com
+  
