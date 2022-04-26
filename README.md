@@ -25,7 +25,10 @@
   ## Usage
   Here are the instructions and examples of how to use this project:
   You use the project by generating a readme file in the dist folder, which you can copy and paste to your readme section of your project, or you can rename the file     that the readme.md writes to in the index.js code and have it write directly to the readme of the project that you want.
-
+  
+  Video Link Showing App Being Used:
+  
+  https://drive.google.com/file/d/1gvO6oCbZW4KX8KF2DLQGo9xG174EqwHk/view
 
   
   ## License
